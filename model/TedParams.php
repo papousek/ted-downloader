@@ -5,17 +5,17 @@
 class TedParams
 {
 
-	const AD_DURATION		= 'adDuration';
+	const AD_DURATION = 'adDuration';
 
-	const INTRO_DURATION	= 'introDuration';
+	const INTRO_DURATION = 'introDuration';
 
-	const LANGUAGES			= 'languages';
+	const LANGUAGES	= 'languages';
 
-	const LANGUAGE_CODE		= 'languageCode';
+	const LANGUAGE_CODE	= 'languageCode';
 
-	const POST_AD_DURATION	= 'postAdDuration';
+	const POST_AD_DURATION = 'postAdDuration';
 
-	const VIDEO_ID			= 'ti';
+	const VIDEO_ID = 'ti';
 
 	private $languages;
 
