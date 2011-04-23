@@ -1,4 +1,5 @@
-<?php
+#!/usr/bin/php -q
+<?php 
 require_once dirname(__FILE__) . '/../model/TedParams.php';
 require_once dirname(__FILE__) . '/../model/TedDownloader.php';
 
@@ -66,7 +67,7 @@ function processUrl($url, array $options, $lang = NULL) {
 printLine();
 message("TED DOWLOADER", 1, "");
 message('', 0, '');
-message("php subtitles.php", 1, '');
+message("subtitles", 1, '');
 message("[-".VIDEO_OPT." <url of the video on the TED server>]", 2, '');
 message("[-".LANGUAGE_OPT." <language>]", 2, '');
 message("[-".FILE_OPT." <file with url of the vide on the TED server per line>]", 2, '');
