@@ -2,8 +2,8 @@ What is TED Downloader?
 ====================
 
 TED Downloader is a simple set of PHP classes providing downloading subtitles
-from official [TED server](http://ted.com). It is inspired by the [python script written by Esteban
-Ordano](http://estebanordano.com/ted-talks-download-subtitles/).
+and video files from official [TED server](http://ted.com). It is inspired by the
+[python script written by Esteban Ordano](http://estebanordano.com/ted-talks-download-subtitles/).
 
 Tools
 ====================
@@ -16,5 +16,3 @@ Additionly you can download TED subtitles from my [utils site](http://utils.zimo
 
 To Do
 ====================
-
-- downloading HQ videos

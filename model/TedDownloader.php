@@ -3,6 +3,7 @@
  * Inspired by the http://estebanordano.com/ted-talks-download-subtitles/
  *
  * @author Jan Papousek (jan.papousek@gmail.com)
+ * @link https://github.com/papousek/ted-downloader
  */
 class TedDownloader
 {

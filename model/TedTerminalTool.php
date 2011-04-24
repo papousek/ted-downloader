@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author Jan Papousek (jan.papousek@gmail.com)
+ * @link https://github.com/papousek/ted-downloader
+ */
 class TedTerminalTool
 {
 
