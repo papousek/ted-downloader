@@ -7,6 +7,8 @@
 class TedDownloader
 {
 
+	const END_OF_LINE = "\r\n";
+
 	/**
 	 * It returns the subtitles in the given language and for the video specified
 	 * by the given parameters.
@@ -37,9 +39,9 @@ class TedDownloader
 		$counter = 0;
 		foreach($json->captions AS $line) {
 			$counter++;
-			$subtitles .= sprintf("%d\n", $counter);
-			$subtitles .= sprintf("%s --> %s\n", $this->getFormattedTime($timeIntro + $line->startTime), $this->getFormattedTime($timeIntro + $line->duration));
-			$subtitles .= sprintf("%s\n\n", $line->content);
+			$subtitles .= sprintf("%d" . self::END_OF_LINE, $counter);
+			$subtitles .= sprintf("%s --> %s" . self::END_OF_LINE, $this->getFormattedTime($timeIntro + $line->startTime), $this->getFormattedTime($timeIntro + $line->startTime + $line->duration));
+			$subtitles .= sprintf("%s" . self::END_OF_LINE . self::END_OF_LINE, $line->content);
 		}
 		return $subtitles;
 	}
