@@ -8,7 +8,7 @@ Ordano](http://estebanordano.com/ted-talks-download-subtitles/).
 Tools
 ====================
 
-Meanwhile the only available tool command line downloader located in the direcory
+Meanwhile the only available tool is the command line downloader located in the direcory
 'tools'. To use this tool you have to have PHP installed on yout computer
 in version >= 5.2.
 
