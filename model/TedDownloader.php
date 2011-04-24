@@ -46,6 +46,40 @@ class TedDownloader
 		return $subtitles;
 	}
 
+	/**
+	 * It saves the subtitles into the given file
+	 *
+	 * @param TedParams $params TED video parameters
+	 * @param string	$lang	language
+	 * @param string	$destination filename
+	 * @throws RuntimeException if there is a problem to save the subtitles
+	 */
+	public function saveSubtitles(TedParams $params, $lang, $destination) {
+		if (empty($destination)) {
+			throw new InvalidArgumentException("The parameter [destination] is empty.");
+		}
+		if (empty($lang)) {
+			throw new InvalidArgumentException("The parameter [lang] is empty.");
+		}
+		$subtitles = $this->getSubtitles($params, $lang);
+		$file = fopen($destination, "w");
+		fwrite($file, $subtitles);
+		fclose($file);
+	}
+
+	/**
+	 * It saves the video into the given file
+	 *
+	 * @param TedParams $params TED video parameters
+	 * @param string	$destination filename
+	 */
+	public function saveVideo(TedParams $params, $destination) {
+		if (empty($destination)) {
+			throw new InvalidArgumentException("The parameter [destination] is empty.");
+		}
+		file_put_contents($destination ,file_get_contents($params->getHighResUrl()));
+	}
+
 	private function getFormattedTime($intValue) {
 		if ($intValue < 0) {
 			throw new InvalidArgumentException("The time has to be a positive number.");

@@ -21,6 +21,8 @@ class TedParams
 
 	private $params;
 
+	private $highResUrl;
+
 	private static $paramsByUrl = array();
 
 	private function __construct($url) {
@@ -33,7 +35,7 @@ class TedParams
 		// close channel
 		curl_close($ch);
 
-		// parse output
+		// parse flashVars
 		preg_match("/flashVars = {\n([^}]+)}/", $output, $matches);
 		if (count($matches) < 1) {
 			throw new RuntimeException("An error has occured during connecting TED server [$url].");
@@ -56,6 +58,16 @@ class TedParams
 			if (count($splittedLine) != 2) continue;
 			$this->params[$splittedLine[0]] = $splittedLine[1];
 		}
+
+		// parse video url
+		preg_match("/<a href=\".*\">Watch high.*<\/a>/", $output, $matches);
+		if (count($matches) != 1) {
+			throw new RuntimeException("An error has occured during connecting TED server [$url].");
+		}
+		$this->highResUrl = "http://ted.com" . strtr($matches[0], array(
+			"<a href=\""						=> "",
+			"\">Watch high-res video (MP4)</a>"	=> ""
+		));
 	}
 
 	/**
@@ -70,6 +82,10 @@ class TedParams
 			return $this->getLanguages();
 		}
 		return isset($this->params[$key]) ? $this->params[$key] : NULL;
+	}
+
+	public function getHighResUrl() {
+		return $this->highResUrl;
 	}
 
 	/**

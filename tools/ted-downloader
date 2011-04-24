@@ -1,0 +1,12 @@
+#!/usr/bin/php -q
+<?php
+require_once dirname(__FILE__) . '/../model/TedParams.php';
+require_once dirname(__FILE__) . '/../model/TedDownloader.php';
+require_once dirname(__FILE__) . '/../model/ITedLogger.php';
+require_once dirname(__FILE__) . '/../model/TedTerminalLogger.php';
+require_once dirname(__FILE__) . '/../model/TedProcessor.php';
+require_once dirname(__FILE__) . '/../model/TedTerminalTool.php';
+
+$tool = new TedTerminalTool();
+$tool->run();
+$tool->terminate();
