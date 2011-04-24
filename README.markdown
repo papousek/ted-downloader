@@ -12,7 +12,7 @@ Meanwhile the only available tool is the command line downloader located in the 
 'tools'. To use this tool you have to have PHP installed on your computer
 in version >= 5.2.
 
-Additionly you can download TED subtitles from [utils site](http://utils.zimodej.cz).
+Additionly you can download TED subtitles from my [utils site](http://utils.zimodej.cz).
 
 To Do
 ====================
