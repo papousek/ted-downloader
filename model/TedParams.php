@@ -23,6 +23,8 @@ class TedParams
 
 	private $highResUrl;
 
+	private $canonicalName;
+
 	private static $paramsByUrl = array();
 
 	private function __construct($url) {
@@ -68,6 +70,15 @@ class TedParams
 			"<a href=\""						=> "",
 			"\">Watch high-res video (MP4)</a>"	=> ""
 		));
+
+		// save canonic name
+		preg_match("/\w*\.html/", $url, $matchesName);
+		if (count($matchesName) != 1) {
+			throw new RuntimeException("An error has occured during connecting TED server [$url].");
+		}
+		$this->canonicalName = strtr($matchesName[0], array(
+			".html"		=> ""
+		));
 	}
 
 	/**
@@ -86,6 +97,10 @@ class TedParams
 
 	public function getHighResUrl() {
 		return $this->highResUrl;
+	}
+
+	public function getCanonicalName() {
+		return $this->canonicalName;
 	}
 
 	/**

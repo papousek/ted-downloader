@@ -71,7 +71,7 @@ class TedProcessor
 		try {
 			$params = TedParams::loadParams($url);
 			// downloads
-			$filename = $this->destDir . $params->getValue(TedParams::VIDEO_ID);
+			$filename = $this->destDir . $params->getValue(TedParams::VIDEO_ID) . "_" . $params->getCanonicalName();
 
 			// get available languages
 			if (empty($this->lang)) {
@@ -80,7 +80,7 @@ class TedProcessor
 			else {
 				// get subtitles
 				try {
-					$srtFile = $filename . (empty($this->postfix) ? "" : "_" . $this->lang) . ".srt";
+					$srtFile = $filename . (empty($this->postfix) ? "" : "[" . $this->lang . "]") . ".srt";
 					$this->logger->info("Downloading subtitles in language [$this->lang].");
 					$this->logger->info("Saving subtitles into the file [$srtFile]");
 					$this->downloader->saveSubtitles($params, $this->lang, $srtFile);
@@ -94,6 +94,7 @@ class TedProcessor
 				$videoFile = $filename . ".mp4";
 				$this->logger->info("Downloading video in high resolution.");
 				$this->downloader->saveVideo($params, $videoFile);
+				$this->logger->info("Vide saved into the file [$videoFile].");
 			}
 		}
 		catch(Exception $e) {
